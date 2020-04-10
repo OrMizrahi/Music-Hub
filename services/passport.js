@@ -20,6 +20,7 @@ passport.use(
 			clientID: keys.googleClientID,
 			clientSecret: keys.googleClientSecret,
 			callbackURL: '/auth/google/redirect',
+			proxy: true,
 		},
 		(accessToken, refreshToken, profile, done) => {
 			//maybe make this a method
