@@ -1,0 +1,9 @@
+export const FETCH_USER = 'fetch_user';
+export const SEARCH_SONG = 'search_song';
+export const RESET_SONGS = 'reset_songs';
+export const FETCH_PLAYLISTS = 'fetch_playlists';
+export const ADD_PLAYLIST = 'add_playlist';
+export const DELETE_PLAYLIST = 'delete_playlist';
+export const ADD_SONG_TO_PLAYLIST = 'add_song_to_playlist';
+export const REMOVE_SONG_FROM_PLAYLIST = 'remove_song_from_playlist';
+export const EDIT_PLAYLIST = 'edit_expense';

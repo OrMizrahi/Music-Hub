@@ -1,0 +1,14 @@
+.box-layout {
+	background: url('https://images.wallpaperscraft.com/image/treble_clef_notes_colorful_art_112359_3840x2160.jpg');
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	height: 100vh;
+	color: ;
+}
+h1 {
+	margin-top: 12px;
+}
+
+//https://wallpaperplay.com/walls/full/a/5/7/101015.jpg
