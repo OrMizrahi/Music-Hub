@@ -28,14 +28,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-	res.send('hi');
-});
-
 app.use('/auth', authRoutes);
 app.use('/api/playlists', playlistRoutes);
 
-if (process.env.NODE_EMV === 'production') {
+if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 
 	app.get('*', (req, res) => {
