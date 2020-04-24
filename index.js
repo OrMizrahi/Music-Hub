@@ -16,8 +16,6 @@ mongoose.connect(process.env.PROD_MONGODB_URI || keys.mongoURI, {
 	useFindAndModify: false,
 });
 
-console.log(process.env.PROD_MONGODB_URI);
-
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,7 +28,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {});
+app.get('/', (req, res) => {
+	res.send('hi');
+});
 
 app.use('/auth', authRoutes);
 app.use('/api/playlists', playlistRoutes);
