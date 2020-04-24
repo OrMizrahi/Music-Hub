@@ -2,7 +2,7 @@ const passport = require('passport');
 const GoogleStratergy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
-const keys = require('../config/dev');
+const keys = require('../config/keys');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 
