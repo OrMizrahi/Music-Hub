@@ -25,7 +25,7 @@ const Playlists = () => {
 				alignItems: 'center',
 			}}
 		>
-			<div style={{ display: 'flex' }}>
+			<div style={{ display: 'flex', alignItems: 'baseline' }}>
 				<h4>
 					{filteredPlaylists.length === 0
 						? 'No playlists to show'
