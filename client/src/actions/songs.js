@@ -3,6 +3,7 @@ import {
 	RESET_SONGS,
 	SET_FILTER_TEXT,
 	SET_FILTER_TYPE,
+	SONGS_LOADING,
 } from './types';
 import axios from 'axios';
 
@@ -18,6 +19,7 @@ export const searchSong = (song) => async (dispatch) => {
 };
 
 export const searchSong2 = (song) => async (dispatch) => {
+	dispatch(setSongsLoading());
 	const res = await axios.get(
 		`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${song}`
 	);
@@ -45,5 +47,11 @@ export const setFilterType = (type) => {
 	return {
 		type: SET_FILTER_TYPE,
 		payload: type,
+	};
+};
+
+export const setSongsLoading = () => {
+	return {
+		type: SONGS_LOADING,
 	};
 };

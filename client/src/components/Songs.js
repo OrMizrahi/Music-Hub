@@ -5,11 +5,13 @@ import { useEffect } from 'react';
 import { resetSongs } from '../actions/songs';
 import SongsFilter from './SongsFilter';
 import { searchSongsFilter } from '../selectors/songs';
+import Spinner from './Spinner';
 
 const Songs = () => {
 	const dispatch = useDispatch();
 	const totalSongs = useSelector((state) => state.songs.songs);
 	const filteredSongs = useSelector(searchSongsFilter);
+	const isLoading = useSelector((state) => state.songs.loading);
 	const hiddenSongs = totalSongs.length - filteredSongs.length;
 
 	useEffect(() => {
@@ -25,6 +27,7 @@ const Songs = () => {
 				alignItems: 'center',
 			}}
 		>
+			<Spinner show={isLoading} />
 			<h3>
 				{filteredSongs.length === 0
 					? 'No songs were found, try again.'

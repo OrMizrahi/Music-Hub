@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { searchSong2 } from '../actions/songs';
+import { searchSong2, resetSongs } from '../actions/songs';
 import { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -15,6 +15,7 @@ const NavBar = ({ history }) => {
 		dispatch(searchSong2(song));
 		setSong('');
 		history.push('/songs');
+		dispatch(resetSongs());
 	};
 
 	const renderContent = () => {
@@ -77,7 +78,7 @@ const NavBar = ({ history }) => {
 	return (
 		<nav className='navbar navbar-expand-md navbar-dark bg-dark'>
 			<a href='#' className='navbar-brand'>
-				<h4 style={{ color: 'aquamarine' }}>Spotify</h4>
+				<h4 style={{ color: 'aquamarine' }}>Music Hub</h4>
 			</a>
 			<button
 				className='navbar-toggler'

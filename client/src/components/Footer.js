@@ -25,7 +25,10 @@ const Footer = () => {
 				className='footer navbar fixed-bottom'
 				style={{ background: 'beige' }}
 			>
-				<div className='container' style={{ textAlign: 'center' }}>
+				<div
+					className='container'
+					style={{ textAlign: 'center', display: 'block' }}
+				>
 					<span className='text-muted'>© 2020 Copyright || Or Mizrahi.</span>
 				</div>
 			</footer>
