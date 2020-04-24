@@ -10,11 +10,15 @@ require('./services/passport');
 const authRoutes = require('./routes/auth-routes');
 const playlistRoutes = require('./routes/playlist-routes');
 
-mongoose.connect(process.env.PROD_MONGODB_URI || keys.mongoURI, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	useFindAndModify: false,
-});
+mongoose.connect(
+	process.env.MONGODB_URI ||
+		'mongodb+srv://OrMizrahi:8kYrycCsTCoStK5l@my-mern-app-cymvz.mongodb.net/test?retryWrites=true&w=majority',
+	{
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useFindAndModify: false,
+	}
+);
 
 const app = express();
 app.use(bodyParser.json());
