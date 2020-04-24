@@ -7,6 +7,6 @@ module.exports = {
 	twitterClientID: 'rXi1UJaRZ7s1iFNxDJMnJIlGI',
 	twitterClientSecret: 'JTSSWUsyZ3ywFkBi0PrOzM88pCnOmCHbg9uV83HIro9rZB5lk4',
 	mongoURI:
-		'mongodb+srv://OrMizrahi:Fi2gHkK8VVWIuBbo@my-mern-app-cymvz.mongodb.net/test?retryWrites=true&w=majority',
+		'mongodb+srv://OrMizrahi:8kYrycCsTCoStK5l@my-mern-app-cymvz.mongodb.net/test?retryWrites=true&w=majority',
 	cookieKey: 'jsfgbhehfkjwehriwenjkfawhqeiuqbewfugkvbsukv',
 };

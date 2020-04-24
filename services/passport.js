@@ -65,55 +65,6 @@ passport.use(
 	)
 );
 
-// passport.use(
-// 	new InstagramStrategy(
-// 		{
-// 			clientID: keys.instagramClientID,
-// 			clientSecret: keys.instagramClientSecret,
-// 			callbackURL: 'auth/instagram/redirect',
-// 			proxy: true,
-// 		},
-// 		async (accessToken, refreshToken, profile, done) => {
-// 			//maybe make this a method
-// 			console.log(profile);
-
-// 			const existingUser = await User.findOne({ authID: profile.id });
-// 			if (existingUser) {
-// 				return done(null, existingUser);
-// 			}
-// 			const newUser = await new User({
-// 				authID: profile.id,
-// 				name: profile.displayName,
-// 				image: profile.photos[0].value,
-// 			}).save();
-// 			done(null, newUser);
-// 		}
-// 	)
-// );
-
-// passport.use(
-// 	new SpotifyStrategy(
-// 		{
-// 			clientID: keys.spotifyClientID,
-// 			clientSecret: keys.spotifyClientSecret,
-// 			callbackURL: '/auth/spotify/redirect',
-// 			proxy: true,
-// 		},
-// 		async (accessToken, refreshToken, expires_in, profile, done) => {
-// 			const existingUser = await User.findOne({ authID: profile.id });
-// 			if (existingUser) {
-// 				return done(null, existingUser);
-// 			}
-// 			const newUser = await new User({
-// 				authID: profile.id,
-// 				name: profile.displayName,
-// 				image: profile.photos.length > 0 ? profile.photos[0].value : '',
-// 			}).save();
-// 			done(null, newUser);
-// 		}
-// 	)
-// );
-
 passport.use(
 	new TwitterStrategy(
 		{
