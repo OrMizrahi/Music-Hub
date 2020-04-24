@@ -34,11 +34,6 @@ const NavBar = ({ history }) => {
 								Login with Facebook
 							</a>
 						</li>
-						<li className='nav-item'>
-							<a href='/auth/twitter' className='nav-link'>
-								Login with Twitter
-							</a>
-						</li>
 					</React.Fragment>
 				);
 

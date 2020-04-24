@@ -26,16 +26,6 @@ router.get(
 	}
 );
 
-router.get('/twitter', passport.authenticate('twitter'));
-
-router.get(
-	'/twitter/redirect',
-	passport.authenticate('twitter', { failureRedirect: '/' }),
-	(req, res) => {
-		res.redirect('http://localhost:3000/dashboard');
-	}
-);
-
 router.get('/logout', (req, res) => {
 	req.logout();
 	res.redirect('/');
