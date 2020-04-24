@@ -10,7 +10,7 @@ require('./services/passport');
 const authRoutes = require('./routes/auth-routes');
 const playlistRoutes = require('./routes/playlist-routes');
 
-mongoose.connect(keys.mongoURI, {
+mongoose.connect(process.env.MONGODB_URI || keys.mongoURI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,
