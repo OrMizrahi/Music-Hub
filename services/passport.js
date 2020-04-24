@@ -119,7 +119,7 @@ passport.use(
 		{
 			consumerKey: keys.twitterClientID,
 			consumerSecret: keys.twitterClientSecret,
-			callbackURL: 'http://localhost:5000/auth/twitter/redirect',
+			callbackURL: '/auth/twitter/redirect',
 		},
 		async (accessToken, refreshToken, profile, done) => {
 			//maybe make this a method
