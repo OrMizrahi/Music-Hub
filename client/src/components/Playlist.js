@@ -12,7 +12,7 @@ const Playlist = ({ name, description, id }) => {
 	};
 
 	return (
-		<div>
+		<div style={{ width: '50%', textAlign: 'center' }}>
 			<Link to={`/playlist/songs/${id}`}>
 				<h4>playlist name: {name}</h4>
 				<p>description: {description}</p>

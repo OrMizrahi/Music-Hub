@@ -3,23 +3,37 @@ import { useSelector, useDispatch } from 'react-redux';
 import Song from './Song';
 import { useEffect } from 'react';
 import { resetSongs } from '../actions/songs';
+import SongsFilter from './SongsFilter';
+import { searchSongsFilter } from '../selectors/songs';
 
 const Songs = () => {
 	const dispatch = useDispatch();
-	let songs = useSelector((state) => state.songs);
+	const totalSongs = useSelector((state) => state.songs.songs);
+	const filteredSongs = useSelector(searchSongsFilter);
+	const hiddenSongs = totalSongs.length - filteredSongs.length;
 
 	useEffect(() => {
 		dispatch(resetSongs());
-	}, []);
+	}, [dispatch]);
 
 	return (
-		<div>
+		<div
+			style={{
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'center',
+				alignItems: 'center',
+			}}
+		>
 			<h3>
-				{songs.length === 0
+				{filteredSongs.length === 0
 					? 'No songs were found, try again.'
 					: 'Songs found: '}
 			</h3>
-			{songs.map((song) => {
+			<SongsFilter playlistsFilter={false} />
+			<br />
+			{hiddenSongs > 0 && <p>Number of hidden songs: {hiddenSongs}</p>}
+			{filteredSongs.map((song) => {
 				return <Song {...song} key={song.id} />;
 			})}
 		</div>

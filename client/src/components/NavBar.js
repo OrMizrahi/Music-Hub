@@ -25,7 +25,7 @@ const NavBar = ({ history }) => {
 				return (
 					<React.Fragment>
 						<li className='nav-item'>
-							<a href='auth/google' className='nav-link'>
+							<a href='/auth/google' className='nav-link'>
 								Login with Google
 							</a>
 						</li>
@@ -35,8 +35,8 @@ const NavBar = ({ history }) => {
 							</a>
 						</li>
 						<li className='nav-item'>
-							<a href='/auth/spotify' className='nav-link'>
-								Login with Spotify
+							<a href='/auth/twitter' className='nav-link'>
+								Login with Twitter
 							</a>
 						</li>
 					</React.Fragment>
@@ -46,7 +46,7 @@ const NavBar = ({ history }) => {
 				return (
 					<React.Fragment>
 						<li className='nav-item'>
-							<a className='nav-link' href='/api/logout'>
+							<a className='nav-link' href='/auth/logout'>
 								Logout
 							</a>
 						</li>
@@ -62,6 +62,7 @@ const NavBar = ({ history }) => {
 						</li>
 						<form onSubmit={handleSubmit} className='form-inline'>
 							<input
+								style={{ height: 'auto' }}
 								value={song}
 								onChange={(e) => setSong(e.target.value)}
 								className='form-control mr-sm-2'

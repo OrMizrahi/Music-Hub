@@ -12,7 +12,7 @@ const PlaylistSong = ({ name, artist, preview, artistImage, playlistName }) => {
 
 	return (
 		<div>
-			<p>title: {name}</p>
+			<h4>title: {name}</h4>
 			<p>artist: {artist}</p>
 			<img src={artistImage} alt='' />
 			<audio controls>

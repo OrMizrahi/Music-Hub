@@ -4,8 +4,11 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('./models/User');
 require('./services/passport');
+const authRoutes = require('./routes/auth-routes');
+const playlistRoutes = require('./routes/playlist-routes');
 
 mongoose.connect(keys.mongoURI, {
 	useNewUrlParser: true,
@@ -25,8 +28,16 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./routes/auth-routes')(app);
-require('./routes/playlist-routes')(app);
+app.use('/auth', authRoutes);
+app.use('/api/playlists', playlistRoutes);
+
+if (process.env.NODE_EMV === 'production') {
+	app.use(express.static('client/build'));
+
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
+}
 
 const port = process.env.PORT || 5000;
 app.listen(port);

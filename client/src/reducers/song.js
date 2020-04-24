@@ -1,11 +1,15 @@
 import { SEARCH_SONG, RESET_SONGS } from '../actions/types';
 
-export default (state = [], action) => {
+const initialState = {
+	songs: [],
+};
+
+export default (state = initialState, action) => {
 	switch (action.type) {
 		case SEARCH_SONG:
-			return action.payload;
+			return { ...state, songs: action.payload };
 		case RESET_SONGS:
-			return [];
+			return { ...state, songs: [] };
 		default:
 			return state;
 	}

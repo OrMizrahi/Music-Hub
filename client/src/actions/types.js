@@ -7,3 +7,5 @@ export const DELETE_PLAYLIST = 'delete_playlist';
 export const ADD_SONG_TO_PLAYLIST = 'add_song_to_playlist';
 export const REMOVE_SONG_FROM_PLAYLIST = 'remove_song_from_playlist';
 export const EDIT_PLAYLIST = 'edit_expense';
+export const SET_FILTER_TEXT = 'set_filter_text';
+export const SET_FILTER_TYPE = 'set_filter_type';

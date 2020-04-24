@@ -20,7 +20,7 @@ export const fetchPlaylists = () => {
 
 export const addPlaylist = (name, description) => {
 	return async (dispatch) => {
-		const res = await axios.post('/api/playlist/create', {
+		const res = await axios.post('/api/playlists/create', {
 			name,
 			description,
 			songs: [],
@@ -34,7 +34,7 @@ export const addPlaylist = (name, description) => {
 
 export const deletePlaylist = (name) => {
 	return async (dispatch) => {
-		await axios.delete(`/api/playlist/delete/${name}`);
+		await axios.delete(`/api/playlists/delete/${name}`);
 
 		dispatch({
 			type: DELETE_PLAYLIST,
@@ -45,7 +45,7 @@ export const deletePlaylist = (name) => {
 
 export const addSongToPlaylist = (songAndPlaylist) => {
 	return async (dispatch) => {
-		await axios.post('/api/playlist/songs/add', songAndPlaylist);
+		await axios.post('/api/playlists/songs/add', songAndPlaylist);
 
 		dispatch({
 			type: ADD_SONG_TO_PLAYLIST,
@@ -56,7 +56,7 @@ export const addSongToPlaylist = (songAndPlaylist) => {
 
 export const removeSongFromPlaylist = (songName, playlistName) => {
 	return async (dispatch) => {
-		const res = await axios.post('/api/playlist/songs/remove', {
+		const res = await axios.post('/api/playlists/songs/remove', {
 			songName,
 			playlistName,
 		});
@@ -70,7 +70,7 @@ export const removeSongFromPlaylist = (songName, playlistName) => {
 
 export const editPlaylist = (newName, newDescription, oldName) => {
 	return async (dispatch) => {
-		const res = await axios.post('/api/playlist/edit', {
+		const res = await axios.post('/api/playlists/edit', {
 			newName,
 			newDescription,
 			oldName,
