@@ -10,11 +10,13 @@ require('./services/passport');
 const authRoutes = require('./routes/auth-routes');
 const playlistRoutes = require('./routes/playlist-routes');
 
-mongoose.connect(process.env.MONGODB_URI || keys.mongoURI, {
+mongoose.connect(process.env.PROD_MONGODB_URI || keys.mongoURI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,
 });
+
+console.log(process.env.PROD_MONGODB_URI);
 
 const app = express();
 app.use(bodyParser.json());
@@ -28,15 +30,17 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get('/', (req, res) => {});
+
 app.use('/auth', authRoutes);
 app.use('/api/playlists', playlistRoutes);
 
 if (process.env.NODE_EMV === 'production') {
 	app.use(express.static('client/build'));
 
-	// app.get('*', (req, res) => {
-	// 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-	// });
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
 }
 
 const port = process.env.PORT || 5000;
