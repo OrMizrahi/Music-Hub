@@ -12,7 +12,7 @@ const playlistRoutes = require('./routes/playlist-routes');
 
 mongoose.connect(
 	process.env.MONGODB_URI ||
-		'mongodb+srv://OrMizrahi:8kYrycCsTCoStK5l@my-mern-app-cymvz.mongodb.net/test?retryWrites=true&w=majority',
+		'mongodb+srv://OrMizrahi:kXi0FNJ6gE2mbtQR@my-mern-app-cymvz.mongodb.net/test?retryWrites=true&w=majority',
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
