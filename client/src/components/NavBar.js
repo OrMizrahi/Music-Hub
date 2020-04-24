@@ -65,7 +65,7 @@ const NavBar = ({ history }) => {
 								placeholder='Search for a song...'
 								aria-label='Search'
 							/>
-							<button className='btn btn-light my-sm-0 ' type='button'>
+							<button className='btn btn-light my-sm-0 ' type='submit'>
 								<i className='fa fa-search'></i>
 							</button>
 						</form>
