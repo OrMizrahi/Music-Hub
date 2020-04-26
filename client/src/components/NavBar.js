@@ -56,7 +56,11 @@ const NavBar = ({ history }) => {
 								Create Playlist
 							</Link>
 						</li>
-						<form onSubmit={handleSubmit} className='form-inline'>
+						<form
+							style={{ marginLeft: '10px' }}
+							onSubmit={handleSubmit}
+							className='form-inline'
+						>
 							<input
 								style={{ height: 'auto' }}
 								value={song}

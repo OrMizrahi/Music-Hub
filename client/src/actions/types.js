@@ -10,3 +10,5 @@ export const EDIT_PLAYLIST = 'edit_expense';
 export const SET_FILTER_TEXT = 'set_filter_text';
 export const SET_FILTER_TYPE = 'set_filter_type';
 export const SONGS_LOADING = 'songs_loading';
+export const PLAYLISTS_LOADING = 'playlists_loading';
+export const PLAYLISTS_FINISHED_LOADING = 'playlists_finished_loading';

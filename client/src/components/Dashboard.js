@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import '../styles/test.css';
-import Spinner from './Spinner';
 
 const useStyles = makeStyles((theme) => ({
 	root: {

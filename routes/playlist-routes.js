@@ -62,8 +62,8 @@ router.post('/songs/add', async (req, res) => {
 					artistImage,
 				});
 			}
-			return playlist1;
 		}
+		return playlist1;
 	});
 
 	await User.findOneAndUpdate(
@@ -72,7 +72,7 @@ router.post('/songs/add', async (req, res) => {
 		{ new: true }
 	);
 
-	res.status(200).send('added song to playlist');
+	res.status(200).send(updatedPlaylists);
 });
 
 router.post('/songs/remove', async (req, res) => {

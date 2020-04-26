@@ -5,16 +5,17 @@ import { useEffect } from 'react';
 import { fetchPlaylists } from '../actions';
 import SongsFilter from './SongsFilter';
 import { playlistsFilter } from '../selectors/songs';
+import Spinner from './Spinner';
 
 const Playlists = () => {
-	const playlists = useSelector((state) => state.playlists);
-	const filteredPlaylists = useSelector(playlistsFilter);
-	const hiddenPlaylists = playlists.length - filteredPlaylists.length;
 	const dispatch = useDispatch();
-
 	useEffect(() => {
 		dispatch(fetchPlaylists());
 	}, [dispatch]);
+	const playlists = useSelector((state) => state.playlists.playlists);
+	const filteredPlaylists = useSelector(playlistsFilter);
+	const hiddenPlaylists = playlists.length - filteredPlaylists.length;
+	const isLoading = useSelector((state) => state.playlists.isLoading);
 
 	return (
 		<div
@@ -25,15 +26,18 @@ const Playlists = () => {
 				alignItems: 'center',
 			}}
 		>
+			<Spinner show={isLoading} />
 			<div style={{ display: 'flex', alignItems: 'baseline' }}>
-				<h4>
-					{filteredPlaylists.length === 0
-						? 'No playlists to show'
-						: 'My playlists: '}
-					<br />
-				</h4>
-				<SongsFilter playlistsFilter={true} />
+				{filteredPlaylists.length === 0 ? (
+					<h3>No playlists to show</h3>
+				) : (
+					<div style={{ display: 'flex' }}>
+						<h3>My playlists</h3>
+					</div>
+				)}
+				<br />
 			</div>
+			{playlists.length > 0 && <SongsFilter playlistsFilter={true} />}
 			{hiddenPlaylists > 0 && (
 				<p>Number of hidden playlists: {hiddenPlaylists}</p>
 			)}

@@ -28,16 +28,24 @@ const Songs = () => {
 			}}
 		>
 			<Spinner show={isLoading} />
-			<h3>
-				{filteredSongs.length === 0
-					? 'No songs were found, try again.'
-					: 'Songs found: '}
-			</h3>
-			<SongsFilter playlistsFilter={false} />
+			{!isLoading && (
+				<h3>
+					{filteredSongs.length === 0
+						? 'No songs were found, try again.'
+						: 'Songs found: '}
+				</h3>
+			)}
+			{!isLoading && totalSongs.length > 0 && (
+				<SongsFilter playlistsFilter={false} />
+			)}
 			<br />
 			{hiddenSongs > 0 && <p>Number of hidden songs: {hiddenSongs}</p>}
 			{filteredSongs.map((song) => {
-				return <Song {...song} key={song.id} />;
+				return (
+					<div className='row'>
+						<Song {...song} key={song.id} />;
+					</div>
+				);
 			})}
 		</div>
 	);

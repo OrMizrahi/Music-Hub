@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
 const searchSongsSelector = (state) => state.songs.songs;
-const playlistsSelector = (state) => state.playlists;
+const playlistsSelector = (state) => state.playlists.playlists;
 const filterTextSelector = (state) => state.filters.filterText;
 const filterTypeSelector = (state) => state.filters.filterType;
 
@@ -25,27 +25,29 @@ export const searchSongsFilter = createSelector(
 	}
 );
 
-export const playlistSongsFilter = (id) => {
-	return createSelector(
-		playlistsSelector,
-		filterTypeSelector,
-		filterTextSelector,
-		(playlists, type, text) => {
-			switch (type) {
-				case 'Song Name':
-					return playlists[id].songs.filter((song) => {
-						return song.name.toLowerCase().includes(text.toLowerCase());
-					});
-				case 'Artist':
-					return playlists[id].songs.filter((song) => {
-						return song.artist.toLowerCase().includes(text.toLowerCase());
-					});
-				default:
-					return playlists[id].songs;
-			}
-		}
-	);
-};
+// export const playlistSongsFilter = (id) => {
+// 	return createSelector(
+// 		playlistsSelector,
+// 		filterTypeSelector,
+// 		filterTextSelector,
+// 		(playlists, type, text) => {
+
+// 			switch (type) {
+// 				case 'Song Name':
+// 					return playlists[id].songs.filter((song) => {
+// 						return song.name.toLowerCase().includes(text.toLowerCase());
+// 					});
+// 				case 'Artist':
+// 					return playlists[id].songs.filter((song) => {
+// 						return song.artist.toLowerCase().includes(text.toLowerCase());
+// 					});
+// 				default:
+// 					console.log(playlists);
+// 					return playlists[id].songs;
+// 			}
+// 		}
+// 	);
+// };
 
 export const playlistsFilter = createSelector(
 	playlistsSelector,

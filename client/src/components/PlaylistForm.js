@@ -8,7 +8,7 @@ import { useRef } from 'react';
 const PlaylistForm = ({ history, match }) => {
 	let isEditing = useRef();
 	let playlistToEdit = useRef();
-	const playlists = useSelector((state) => state.playlists);
+	const playlists = useSelector((state) => state.playlists.playlists);
 	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
 

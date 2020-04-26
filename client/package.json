@@ -16,6 +16,8 @@
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "3.4.1",
 		"react-select": "^3.1.0",
+		"react-speech-kit": "^2.0.5",
+		"react-speech-recognition": "^2.0.4",
 		"reactstrap": "^8.4.1",
 		"redux": "^4.0.5",
 		"redux-thunk": "^2.3.0",

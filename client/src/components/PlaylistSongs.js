@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PlaylistSong from './PlaylistSong';
-import SongsFilter from './SongsFilter';
-import { playlistSongsFilter } from '../selectors/songs';
+//import SongsFilter from './SongsFilter';
+//import { playlistSongsFilter } from '../selectors/songs';
 import { fetchPlaylists } from '../actions/playlist';
 
 const PlaylistSongs = ({ match }) => {
 	const id = match.params.id;
-	const currentPlaylist = useSelector((state) => state.playlists)[id];
-	const playlistSongs = useSelector(playlistSongsFilter(id));
-
-	const hiddenPlaylistSongs =
-		currentPlaylist.songs.length - playlistSongs.length;
+	const currentPlaylist = useSelector((state) => state.playlists.playlists)[id];
+	//const playlistSongs = useSelector(playlistSongsFilter(id));
+	// const hiddenPlaylistSongs =
+	// 	currentPlaylist.songs.length - playlistSongs.length;
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(fetchPlaylists());
-	}, [dispatch, match]);
+	}, [dispatch]);
 
 	return (
 		<div
@@ -30,21 +29,18 @@ const PlaylistSongs = ({ match }) => {
 		>
 			{currentPlaylist &&
 				(currentPlaylist.songs.length >= 1 ? (
-					<h5>
-						Displaying songs for playlist: <b>{currentPlaylist.name} </b>
-					</h5>
+					<div>
+						<h5>
+							Displaying songs for playlist: <b>{currentPlaylist.name} </b>
+						</h5>
+					</div>
 				) : (
 					<h5>
 						There are no songs for playlist: <b>{currentPlaylist.name} !</b>
 					</h5>
 				))}
-			<br />
-			<SongsFilter playlistsFilter={false} />
-			{hiddenPlaylistSongs > 0 && (
-				<p>Number of hidden songs: {hiddenPlaylistSongs}</p>
-			)}
-			{playlistSongs &&
-				playlistSongs.map((currSong) => {
+			{currentPlaylist &&
+				currentPlaylist.songs.map((currSong) => {
 					return (
 						<PlaylistSong
 							{...currSong}
