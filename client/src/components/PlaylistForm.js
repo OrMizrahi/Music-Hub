@@ -43,29 +43,62 @@ const PlaylistForm = ({ history, match }) => {
 	};
 
 	return (
-		<form onSubmit={createForm} className='pure-form'>
-			<fieldset className='pure-group'>
-				<input
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-					type='text'
-					className='pure-input-1-2'
-					placeholder='name'
-				/>
-				<textarea
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
-					className='pure-input-1-2'
-					placeholder='Add a description (optional).'
-				></textarea>
-			</fieldset>
-			<button
-				type='submit'
-				className='pure-button pure-input-1-2 pure-button-primary'
-			>
-				{isEditing.current ? 'Edit' : 'Create'} Playlist
-			</button>
-		</form>
+		<div style={{ backgroundColor: '#344a72' }}>
+			<div style={{ margin: '30px auto', maxWidth: '550px', padding: '10px' }}>
+				<div style={{ padding: '15px 25px', background: 'white' }}>
+					<form onSubmit={createForm}>
+						<label
+							style={{
+								display: 'block',
+								marginBottom: '3px',
+							}}
+							htmlFor='name'
+						>
+							Name
+						</label>
+						<input
+							style={{ width: '100%', padding: '8px', borderRadius: '1px' }}
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+							type='text'
+							id='name'
+						/>
+						<label
+							style={{
+								display: 'block',
+								marginBottom: '3px',
+								marginTop: '10px',
+							}}
+							htmlFor='description'
+						>
+							Description
+						</label>
+						<textarea
+							style={{ width: '100%', borderRadius: '2px' }}
+							value={description}
+							id='description'
+							rows='5'
+							onChange={(e) => setDescription(e.target.value)}
+						></textarea>
+						<button
+							style={{
+								marginTop: '5px',
+								display: 'block',
+								width: '100%',
+								backgroundColor: '#49c1a2',
+								color: 'white',
+								padding: '5px 0',
+								marginBottom: '8px',
+								cursor: 'pointer',
+							}}
+							type='submit'
+						>
+							{isEditing.current ? 'Edit' : 'Create'} Playlist
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	);
 };
 

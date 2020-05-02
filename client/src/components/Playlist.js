@@ -12,15 +12,45 @@ const Playlist = ({ name, description, id }) => {
 	};
 
 	return (
-		<div style={{ width: '50%', textAlign: 'center' }}>
-			<Link to={`/playlist/songs/${id}`}>
-				<h4>playlist name: {name}</h4>
-				<p>description: {description}</p>
-			</Link>
-			<button onClick={onDeletePlayList}>Delete Playlist</button>
-			<Link to={`/playlist/edit/${id}`}>Edit Playlist</Link>
-			<br />
-			<br />
+		<div
+			style={{
+				background: 'white',
+				padding: '10px 20px',
+				width: '40%',
+				height: '40%',
+				borderRadius: '5px',
+			}}
+		>
+			<div style={{ textAlign: 'center', marginTop: '10px' }}>
+				<Link to={`/playlist/songs/${id}`}>
+					<h5 style={{ width: '100%' }}>playlist name: {name}</h5>
+					<p>description: {description}</p>
+				</Link>
+				<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+					<button
+						style={{
+							background: 'orangeRed',
+							color: 'white',
+							border: 'none',
+							padding: '5px 10px',
+						}}
+						onClick={onDeletePlayList}
+					>
+						Delete Playlist
+					</button>
+					<Link
+						style={{
+							background: 'green',
+							color: 'white',
+							textDecoration: 'none',
+							padding: '5px 10px',
+						}}
+						to={`/playlist/edit/${id}`}
+					>
+						Edit Playlist
+					</Link>
+				</div>
+			</div>
 		</div>
 	);
 };
